@@ -1,4 +1,4 @@
-# StudySphere 🎓
+# Synapse.io 🎓
 
 A comprehensive productivity dashboard that helps students and professionals manage their academic, career, and fitness goals all in one place.
 
