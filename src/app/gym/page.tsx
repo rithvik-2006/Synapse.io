@@ -57,7 +57,7 @@ export default function Gym() {
     weight: "",
   })
   
-  const [height, setHeight] = useState<number>(175) // Default height in cm
+  const [height, setHeight] = useState<number>(172.5) // Default height in cm
   const [mounted, setMounted] = useState(false)
   const [loading, setLoading] = useState(false)
 

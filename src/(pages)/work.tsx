@@ -19,7 +19,7 @@ import {
 import { Calendar, Trash2, Plus } from "lucide-react"
 import { JSX } from "react/jsx-runtime"
 
-// Type definitions
+
 type JobStatus = "Applied" | "OA" | "Interview" | "Offer" | "Rejected"
 type AssessmentType = "OA" | "Interview"
 
@@ -68,7 +68,7 @@ export default function Work(): JSX.Element {
     date: "",
   })
 
-  // Handlers
+
   const addJob = () => {
     if (!newJob.company || !newJob.role || !newJob.status) return
     setJobs([...jobs, newJob])
@@ -97,7 +97,7 @@ export default function Work(): JSX.Element {
       </h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {/* Job Applications */}
+
         <Card className="rounded-2xl shadow-lg bg-neutral-900 border border-neutral-700">
           <CardHeader>
             <CardTitle className="text-white">Job Applications</CardTitle>
@@ -125,7 +125,7 @@ export default function Work(): JSX.Element {
                 </div>
               ))}
 
-              {/* Add Job Form */}
+
               <div className="space-y-2 border-t border-neutral-700 pt-3">
                 <Input
                   placeholder="Company"
@@ -171,7 +171,7 @@ export default function Work(): JSX.Element {
           </CardContent>
         </Card>
 
-        {/* Assessments */}
+
         <Card className="rounded-2xl shadow-lg bg-neutral-900 border border-neutral-700">
           <CardHeader>
             <CardTitle className="text-white">OA & Interviews</CardTitle>
@@ -201,7 +201,7 @@ export default function Work(): JSX.Element {
                 </div>
               ))}
 
-              {/* Add Assessment Form */}
+
               <div className="space-y-2 border-t border-neutral-700 pt-3">
                 <Input
                   placeholder="Company"

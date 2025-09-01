@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Calendar, Trash2, Plus, Calculator } from "lucide-react";
 import { JSX } from "react/jsx-runtime";
 
-// Grade point mapping
+
 const gradePointMap: { [key: string]: number } = {
   'A+': 10,
   'A': 10,
@@ -23,7 +23,7 @@ const gradePointMap: { [key: string]: number } = {
   'U': 0,
 };
 
-// Type definitions
+
 interface Grade {
   _id?: string;
   subject: string;
@@ -66,7 +66,7 @@ export default function Study(): JSX.Element {
   const [newAssignment, setNewAssignment] = useState<NewAssignmentForm>({ subject: "", desc: "", due: "" });
   const [newExam, setNewExam] = useState<NewExamForm>({ subject: "", date: "" });
 
-  // Calculate CGPA
+
   const calculateCGPA = (): { cgpa: number; totalCredits: number; totalGradePoints: number } => {
     let totalGradePoints = 0;
     let totalCredits = 0;
@@ -88,7 +88,7 @@ export default function Study(): JSX.Element {
 
   const { cgpa, totalCredits, totalGradePoints } = calculateCGPA();
 
-  // Fetch grades from backend
+
   const fetchGrades = async () => {
     try {
       const res = await fetch('/api/study/grades');
@@ -103,7 +103,7 @@ export default function Study(): JSX.Element {
     }
   };
 
-  // Fetch assignments from backend
+
   const fetchAssignments = async () => {
     try {
       const res = await fetch('/api/study/assignments');
@@ -118,7 +118,7 @@ export default function Study(): JSX.Element {
     }
   };
 
-  // Fetch exams from backend
+
   const fetchExams = async () => {
     try {
       const res = await fetch('/api/study/exams');
@@ -133,14 +133,14 @@ export default function Study(): JSX.Element {
     }
   };
 
-  // Initial load
+
   useEffect(() => {
     fetchGrades();
     fetchAssignments();
     fetchExams();
   }, []);
 
-  // Grade handlers
+
   const addGrade = async (): Promise<void> => {
     if (!newGrade.subject || !newGrade.grade || !newGrade.credits) return;
 
@@ -193,7 +193,7 @@ export default function Study(): JSX.Element {
     }
   };
 
-  // Assignment handlers
+
   const addAssignment = async (): Promise<void> => {
     if (!newAssignment.subject || !newAssignment.desc || !newAssignment.due) return;
 
@@ -243,7 +243,7 @@ export default function Study(): JSX.Element {
     }
   };
 
-  // Exam handlers
+
   const addExam = async (): Promise<void> => {
     if (!newExam.subject || !newExam.date) return;
 
@@ -300,7 +300,7 @@ export default function Study(): JSX.Element {
       </h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {/* CGPA Calculator */}
+
         <Card className="bg-[#111111] text-white rounded-2xl shadow-lg md:col-span-2">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
@@ -328,7 +328,7 @@ export default function Study(): JSX.Element {
               </div>
             </div>
             
-            {/* Grade Point Reference */}
+
             <div className="mt-4 p-3 bg-black/40 rounded-lg">
               <h4 className="text-sm font-semibold mb-2 text-gray-300">Grade Point Reference:</h4>
               <div className="grid grid-cols-4 md:grid-cols-8 gap-2 text-xs">
@@ -343,7 +343,7 @@ export default function Study(): JSX.Element {
           </CardContent>
         </Card>
 
-        {/* Grades */}
+
         <Card className="bg-[#111111] text-white rounded-2xl shadow-lg">
           <CardHeader>
             <CardTitle>Grades</CardTitle>
@@ -394,7 +394,7 @@ export default function Study(): JSX.Element {
                 })}
               </tbody>
             </table>
-            {/* Add Grade */}
+
             <div className="flex gap-2 mt-3">
               <Input
                 placeholder="Subject"
@@ -435,7 +435,7 @@ export default function Study(): JSX.Element {
           </CardContent>
         </Card>
 
-        {/* Assignments */}
+
         <Card className="bg-[#111111] text-white rounded-2xl shadow-lg">
           <CardHeader>
             <CardTitle>Assignments</CardTitle>
@@ -461,7 +461,7 @@ export default function Study(): JSX.Element {
                 </Button>
               </div>
             ))}
-            {/* Add Assignment */}
+
             <div className="flex flex-col gap-2 mt-3">
               <Input
                 placeholder="Subject"
@@ -497,7 +497,7 @@ export default function Study(): JSX.Element {
           </CardContent>
         </Card>
 
-        {/* Exams */}
+
         <Card className="bg-[#111111] text-white rounded-2xl shadow-lg md:col-span-2">
           <CardHeader>
             <CardTitle>Exams</CardTitle>
@@ -526,7 +526,7 @@ export default function Study(): JSX.Element {
                 </div>
               ))}
             </div>
-            {/* Add Exam */}
+
             <div className="flex gap-2 mt-3">
               <Input
                 placeholder="Subject"

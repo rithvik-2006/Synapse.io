@@ -30,7 +30,7 @@ export default function Navbar() {
     <nav className="bg-black border-b border-neutral-800 sticky top-0 z-50 backdrop-blur-sm bg-opacity-95">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
+
           <Link href="/">
           <div className="flex items-center">
             <h1 className="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
@@ -39,7 +39,7 @@ export default function Navbar() {
             </h1>
           </div>
           </Link>
-          {/* Desktop Nav */}
+
           <div className="hidden md:block">
   <div className="ml-10 flex items-center space-x-6">
     {navItems.map((item) => {
@@ -61,7 +61,7 @@ export default function Navbar() {
   </div>
 </div>
 
-          {/* Mobile menu button */}
+
           <div className="md:hidden">
             <button
               onClick={toggleMobileMenu}
@@ -73,7 +73,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Nav */}
+
       {isMobileMenuOpen && (
   <div className="md:hidden animate-slide-down">
     <div className="px-3 pt-3 pb-4 space-y-2 bg-black border-t border-neutral-800 shadow-lg">

@@ -16,7 +16,7 @@ import {
 } from "recharts"
 import Navbar from "@/(components)/navbar"
 
-// Type definitions
+
 interface WorkoutRoutine {
   name: string
   exercises: string
@@ -67,7 +67,7 @@ export default function Gym() {
     setMounted(true)
   }, [])
 
-  // Calculate BMI data for chart
+
   const bmiData: BMIDataPoint[] = weightLog.map((entry) => {
     const heightInMeters = height / 100
     const bmi = Number(
@@ -76,7 +76,7 @@ export default function Gym() {
     return { ...entry, bmi }
   })
 
-  // Handlers
+
   const addRoutine = (): void => {
     if (!newRoutine.name.trim() || !newRoutine.exercises.trim()) return
     setRoutines([...routines, { ...newRoutine }])
@@ -98,7 +98,7 @@ export default function Gym() {
       weight: weightValue,
     }
     
-    // Sort weight log by date to maintain chronological order
+
     const newWeightLog = [...weightLog, weightEntry].sort((a, b) => 
       new Date(a.date).getTime() - new Date(b.date).getTime()
     )
@@ -123,7 +123,7 @@ export default function Gym() {
     return Number((weight / (heightInMeters * heightInMeters)).toFixed(1))
   }
 
-  // Get today's date in YYYY-MM-DD format for default date input
+
   const getTodayDate = (): string => {
     const today = new Date()
     return today.toISOString().split('T')[0]
@@ -137,7 +137,7 @@ export default function Gym() {
       <h1 className="text-3xl font-bold mb-8 text-center">🏋️ Gym Dashboard</h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-        {/* Workout Routine */}
+
         <Card className="rounded-2xl shadow-lg bg-neutral-900 border border-neutral-800">
           <CardHeader>
             <CardTitle className="text-lg text-white font-semibold">Workout Routine</CardTitle>
@@ -166,7 +166,7 @@ export default function Gym() {
               </div>
             ))}
 
-            {/* Add Routine */}
+
             <div className="space-y-2 border-t border-neutral-800 pt-3">
               <Input
                 className="bg-neutral-950 border-neutral-800 text-white placeholder-gray-500"
@@ -194,7 +194,7 @@ export default function Gym() {
           </CardContent>
         </Card>
 
-        {/* Weight & BMI Tracker */}
+
         <Card className="rounded-2xl shadow-lg bg-neutral-900 border border-neutral-800">
           <CardHeader>
             <CardTitle className="text-lg text-white font-semibold">Weight & BMI Tracker</CardTitle>
@@ -225,7 +225,7 @@ export default function Gym() {
               </div>
             ))}
 
-            {/* Add Weight */}
+
             <div className="space-y-2 border-t text-white border-neutral-800 pt-3">
             <Input
   type="date"
@@ -257,7 +257,7 @@ export default function Gym() {
               </Button>
             </div>
 
-            {/* Height Input */}
+
             <div className="flex items-center text-white gap-2 mt-4">
               <p className="text-sm">Height (cm):</p>
               <Input
@@ -271,7 +271,7 @@ export default function Gym() {
               />
             </div>
 
-            {/* BMI Graph */}
+
             <div className="mt-6 h-64 w-full">
               {mounted && bmiData.length > 0 && (
                 <div className="w-full h-full">
