@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Calculator, BookOpen, Calendar, Briefcase, Clock } from "lucide-react";
+import TodoList from "@/components/TodoList";
 
 interface Grade {
   subject: string;
@@ -338,6 +339,10 @@ export default function Home() {
           </CardContent>
         </Card>
       </div>
+      <div className="mt-6">
+  <TodoList />
+</div>
+
     </div>
   );
 }
